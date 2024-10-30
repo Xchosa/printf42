@@ -1,0 +1,25 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+	  {
+		"name": "Debug",
+		"type": "cppdbg",
+		"request": "launch",
+		"program": "${workspaceFolder}/push_swap",
+		"args": ["160 558 727 356 72 463 1000 473 828 798 295 214 253 47 947 434 731 918 562 906 60 208 139 655 901 887 895 466 471 829 180 754 553 964 857 982 116 797 74 376 303 113 847 185 429 331 319 462 181 867 879 44 461 309 935 320 648 966 613 207 749 805 978 426 110 551 53 395 378 768 242 26 863 909 59"],
+		"stopAtEntry": false,
+		"cwd": "${workspaceFolder}",
+		"environment": [],
+		"externalConsole": false,
+		"MIMode": "lldb",
+		"setupCommands": [
+		  {
+			"description": "Enable pretty-printing for gdb",
+			"text": "-enable-pretty-printing",
+			"ignoreFailures": true
+		  }
+		],
+		"preLaunchTask": "build"
+	  }
+	]
+  }
