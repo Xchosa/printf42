@@ -1,12 +1,13 @@
 cc = gcc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar
+ARFLAG = rc
 
 NAME = libftprintf.a
 MY_SOURCES = \
-ft_putchar_pr.c \
-ft_putnbr_fd.c \
-int ft_parse.c \
+			ft_printf_func.c \
+			ft_printf_func2.c \
+			ft_printf.c \
 
 
 
