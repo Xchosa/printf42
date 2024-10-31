@@ -6,7 +6,7 @@
 /*   By: poverbec <poverbec@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:47:02 by poverbec          #+#    #+#             */
-/*   Updated: 2024/10/31 14:21:34 by poverbec         ###   ########.fr       */
+/*   Updated: 2024/10/31 17:11:56 by poverbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,19 @@ int	ft_putchar_pr(char c)
 int	ft_putstr_pr(char *s)
 {
 	int	run;
+	int	error_check;
 
 	run = 0;
 	if (s == NULL)
 	{
 		return (write(1, "(null)", 6));
 	}
-	while (s[run] != '\0')
+	while (*s != '\0')
 	{
-		ft_putchar_pr(s[run]);
-		run++;
+		error_check = ft_putchar_pr(*s++);
+		if (error_check == -1)
+			return (-1);
+		run += error_check;
 	}
 	return (run);
 }
@@ -38,20 +41,26 @@ int	ft_putnbr_pr(int n)
 {
 	long	number;
 	char	c;
+	int		run;
+	int		error_check;
 
 	number = n;
+	run = 0;
 	if (number < 0)
 	{
-		c = '-';
-		write(1, "-", 1);
+		run += ft_putchar_pr('-');
 		number = -number;
 	}
 	if (number >= 10)
 	{
-		ft_putnbr_pr(number / 10);
+		error_check = run;
+		if (error_check == -1)
+			return (-1);
+		run += ft_putnbr_pr(number / 10);
 	}
 	c = (number % 10) + '0';
-	return (ft_putchar_pr(number));
+	run += (ft_putchar_pr(c));
+	return (run);
 }
 
 int	ft_put_unsig_int(unsigned int n)
@@ -61,8 +70,7 @@ int	ft_put_unsig_int(unsigned int n)
 	run = 0;
 	if (n >= 10)
 	{
-		run = ft_put_unsig_int(n / 10);
-		run = ft_put_unsig_int(n % 10);
+		run += ft_put_unsig_int(n / 10);
 	}
 	run += (ft_putchar_pr(n % 10) + '0');
 	return (run);
@@ -84,4 +92,3 @@ int	ft_put_hex_lower(unsigned int c)
 		run += ft_putchar_pr(base[c]);
 	return (run);
 }
-

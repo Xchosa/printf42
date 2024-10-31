@@ -6,7 +6,7 @@
 /*   By: poverbec <poverbec@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:48:11 by poverbec          #+#    #+#             */
-/*   Updated: 2024/10/31 13:52:53 by poverbec         ###   ########.fr       */
+/*   Updated: 2024/10/31 14:53:55 by poverbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_put_hex_upper(unsigned int c)
 {
-	int run;
-	char *base;
+	int		run;
+	char	*base;
 
 	run = 0;
 	base = "0123456789ABCDEF";
@@ -25,6 +25,6 @@ int	ft_put_hex_upper(unsigned int c)
 		run += ft_put_hex_upper(c % 16);
 	}
 	else
-		run += putchar(base[c % 16]);
+		run += ft_putchar_pr(base[c % 16]);
 	return (run);
 }
