@@ -6,7 +6,7 @@
 /*   By: poverbec <poverbec@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:47:02 by poverbec          #+#    #+#             */
-/*   Updated: 2024/11/02 16:23:36 by poverbec         ###   ########.fr       */
+/*   Updated: 2024/11/02 17:08:00 by poverbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_putnbr_pr(int n)
 			return (-1);
 		run += error_check;
 	}
-	error_check = (ft_putchar_pr(number % 10) + '0');
+	error_check = (ft_putchar_pr((number % 10) + '0'));
 	if (error_check == -1)
 		return (-1);
 	return (run += error_check, run);
@@ -75,7 +75,6 @@ int	ft_put_unsig_int(unsigned int n)
 
 	run = 0;
 	number = n;
-
 	if (number >= 10)
 	{
 		error_check = ft_put_unsig_int(number / 10);
@@ -109,12 +108,13 @@ int	ft_put_hex_lower_int(unsigned int c)
 		error_check = ft_put_hex_lower_int(c % 16);
 		if (error_check == -1)
 			return (-1);
-		run += error_check;
 	}
 	else
+	{
 		error_check = ft_putchar_pr(base[c]);
-	if (error_check == -1)
-		return (-1);
+		if (error_check == -1)
+			return (-1);
+	}
 	run += error_check;
 	return (run);
 }

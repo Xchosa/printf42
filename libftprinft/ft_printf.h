@@ -6,7 +6,7 @@
 /*   By: poverbec <poverbec@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 10:06:07 by poverbec          #+#    #+#             */
-/*   Updated: 2024/11/02 13:46:47 by poverbec         ###   ########.fr       */
+/*   Updated: 2024/11/02 17:12:08 by poverbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_put_hex_upper(unsigned int c);
 int	ft_put_pointer(unsigned long p);
 
 int	ft_error_check_char(char c);
-int ft_error_check_nbr(int n);
+int	ft_error_check_nbr(int n);
 
 int	ft_parse(va_list args, char c);
 

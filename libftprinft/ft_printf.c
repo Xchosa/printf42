@@ -6,7 +6,7 @@
 /*   By: poverbec <poverbec@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 11:19:17 by poverbec          #+#    #+#             */
-/*   Updated: 2024/11/02 16:05:04 by poverbec         ###   ########.fr       */
+/*   Updated: 2024/11/02 17:08:43 by poverbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,17 @@ int	ft_printf(const char *format, ...)
 			error_check = ft_parse(args, *format);
 			if (error_check == -1)
 				return (va_end(args), -1);
-			run += error_check;
-			format++;
 		}
 		else
 		{
 			error_check = ft_putchar_pr(*format);
 			if (error_check == -1)
 				return (-1);
-			run += error_check;
-			format++;
 		}
+		run += error_check;
+		format++;
 	}
-	va_end(args);
-	return (run);
+	return (va_end(args), run);
 }
 
 int	ft_parse(va_list args, char c)
